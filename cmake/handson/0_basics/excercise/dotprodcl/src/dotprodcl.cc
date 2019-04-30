@@ -2,6 +2,12 @@
 #include <iostream>
 #include <random>
 
+#ifdef ENABLE_LIBRARY
+#include "dotprod/dotprod.h"
+#endif
+
+namespace po = boost::program_options;
+
 struct RandomInitializer {
   std::mt19937 mt;
   std::uniform_real_distribution<double> dist;
@@ -25,15 +31,19 @@ double calculate_random_dot_product(size_t size) {
 
   double res = 0;
 
-  for (size_t i = 0; i < size; ++i) {
-    res += a[i] * b[i];
-  }
+#ifdef ENABLE_LIBRARY
+  res = dotprod(a, b);
+#endif
 
   return res;
 }
 
+void print_help_and_exit(po::options_description const& desc) {
+  std::cout << desc << "\n";
+  exit(1);
+}
+
 int main(int argc, char* argv[]) {
-  namespace po = boost::program_options;
   po::options_description desc("Allowed options");
   desc.add_options()("help", "Shows this message")("size", po::value<size_t>(),
                                                    "Size of the vectors");
@@ -42,15 +52,12 @@ int main(int argc, char* argv[]) {
   po::notify(vm);
 
   if (vm.count("help")) {
-    std::cout << "A command-line dot product calculator\n";
-    std::cout << desc << "\n";
-    return 1;
+    print_help_and_exit(desc);
   }
 
-  if (vm.count("size")) {
-    std::cout << "Size was set to " << vm["size"].as<size_t>() << ".\n";
-  } else {
-    std::cout << "Size was not set.\n";
+  if (!vm.count("size")) {
+    std::cout << "Size was not set.\n\n";
+    print_help_and_exit(desc);
   }
 
   std::cout << calculate_random_dot_product(vm["size"].as<size_t>())

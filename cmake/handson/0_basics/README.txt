@@ -15,3 +15,4 @@ Write a CMakeLists.txt which builds and installs the library `dotprod` (don't ex
 Maybe for the fast guys:
 Part 3) Now link the library to dotprodcl.
 We can then look how they do it and discuss problems based on their solutions.
+Part 3 can be done before we actually introduce how to do it properly. 

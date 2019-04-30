@@ -1,0 +1,15 @@
+Part 1)
+
+Write a CMakeLists.txt to compile the dotprodcl application.
+Its only dependency is boost's program_options.
+
+Part 2)
+
+Write a CMakeLists.txt to compile the dotprod library.
+Add necessary commands to install the library and its headers.
+
+Part 3)
+
+Now use library in the dotprodcl application.
+To do so, open XXX.cc and uncomment the marked lines.  
+ 
