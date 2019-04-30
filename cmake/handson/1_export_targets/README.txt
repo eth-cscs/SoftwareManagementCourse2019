@@ -4,7 +4,7 @@ Topics:
 - Use fetch_content to get a new gtest version
 - Use the exported targets
 - Export your library via a target
-- Use and export a version number for your library (and a compatibility setting)
+- Use and export a version number for your library (and a compatibility setting), in presentation side-remark about semver
 
 TODO: Maybe, we can make up a library which creates a conflict
 in the executable if some dependency is not correctly flagged as build private.
