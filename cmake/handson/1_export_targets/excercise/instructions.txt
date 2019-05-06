@@ -1,16 +1,18 @@
 Part 1)
 
-The dotprod library was extended and now contains testing code using googletest.
-The googletest version, which is availabe as part of the repository (in external),
-doesn't export its targets.
-Write a FindGoogleTest.cmake file to be able to discover googletest.
-Use an interface library for this purpose.
+The dotprodcl application currently uses variables to point to its dependency, the dotprod library.
+Additionally it explicitly sets include path and the library name. Write a FindDotprod.cmake to be
+used in find_package(). Use "imported targets" to propagate needed information to the application
+(include path, library). This is a strategy which you would apply if you don't want to modify the build
+infrastructure of the library (see also Part 3)).
 
 Part 2)
 
-Actually the most recent version of googletest (v1.8.1, https://github.com/google/googletest)
-properly exports targets.
-Update to this version by using fetch_content() instead of making googletest part of your repository.
+The dotprod library was extended and now contains testing code using googletest.
+The googletest version, which is availabe as part of the repository (in external),
+doesn't export its target. Update to the most recent version of googletest
+(v1.8.1, https://github.com/google/googletest).
+Use fetch_content() instead of making googletest part of your repository.
 
 Part 3)
 

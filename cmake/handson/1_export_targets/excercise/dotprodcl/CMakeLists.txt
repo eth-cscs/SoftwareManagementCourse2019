@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 
 project(dotprodcl CXX)
 
-# Don't do this, see excercises in next session
+# TODO rewrite to use a selfmade find_package which exports a target via an interface library
 set(DOTPROD_ROOT "${CMAKE_CURRENT_LIST_DIR}/../dotprod/install" CACHE STRING "Path to dotprod library")
 
 find_package(Boost 1.66 REQUIRED
@@ -21,7 +21,7 @@ else()
     target_compile_definitions(dotprodcl PRIVATE PRECISION=8)
 endif()
 
-# Don't do this, instead use an exported target
+# Don't do the following, instead use an exported target
 target_include_directories(dotprodcl PRIVATE ${DOTPROD_ROOT}/include)
 target_link_directories(dotprodcl PRIVATE ${DOTPROD_ROOT}/lib64)
 target_link_libraries(dotprodcl dotprod)
