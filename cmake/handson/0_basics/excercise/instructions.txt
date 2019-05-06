@@ -1,7 +1,9 @@
 Part 1)
 
 Write a CMakeLists.txt to compile the dotprodcl application.
-Its only dependency is boost's program_options.
+- Its only dependency is boost's program_options.
+- Use a cached variable to allow the user to select the floating point precision (float/double).
+  Depending on the CMake variable, set the preprocessor macro "PRECISION" to 4 (float) or 8 (double).
 
 Part 2)
 
@@ -11,5 +13,6 @@ Add necessary commands to install the library and its headers.
 Part 3)
 
 Now use library in the dotprodcl application.
-To do so, open XXX.cc and uncomment the marked lines.  
+- Define the macro ENABLE_LIBRARY when compiling the executable. (Don't use this patterns in your project!)
+- Write the necessary commands to find header and library.
  

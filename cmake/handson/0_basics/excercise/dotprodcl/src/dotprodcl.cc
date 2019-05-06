@@ -2,34 +2,43 @@
 #include <iostream>
 #include <random>
 
+// This is just a hack to have a single example source
 #ifdef ENABLE_LIBRARY
 #include "dotprod/dotprod.h"
+#endif
+
+#if PRECISION == 4
+using float_type = float;
+#elif PRECISION == 8
+using float_type = double;
+#else
+#error "The project is not configured properly!"
 #endif
 
 namespace po = boost::program_options;
 
 struct RandomInitializer {
   std::mt19937 mt;
-  std::uniform_real_distribution<double> dist;
+  std::uniform_real_distribution<float_type> dist;
 
   RandomInitializer() : mt(std::random_device{}()), dist{0, 1.0} {}
 
-  void init(std::vector<double>& v) {
+  void init(std::vector<float_type>& v) {
     for (auto& e : v) {
       e = dist(mt);
     }
   }
 };
 
-double calculate_random_dot_product(size_t size) {
-  std::vector<double> a(size);
-  std::vector<double> b(size);
+float_type calculate_random_dot_product(size_t size) {
+  std::vector<float_type> a(size);
+  std::vector<float_type> b(size);
 
   RandomInitializer rand;
   rand.init(a);
   rand.init(b);
 
-  double res = 0;
+  float_type res = 0;
 
 #ifdef ENABLE_LIBRARY
   res = dotprod(a, b);
