@@ -16,5 +16,5 @@ Use fetch_content() instead of making googletest part of your repository.
 
 Part 3)
 
-Write a dotprod-config.cmake which exports the target and installs it together with the library.
-Update dotprodcl to use the exported target.
+- Properly export the target for the dotprod library and installs it together with the library.
+- Update dotprodcl to use the exported target.
