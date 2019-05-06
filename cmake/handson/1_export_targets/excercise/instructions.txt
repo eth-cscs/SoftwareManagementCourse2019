@@ -1,13 +1,18 @@
 Part 1)
 
 The dotprod library was extended and now contains testing code using googletest.
-The googletest version, which is currently part of the repository (in external),
+The googletest version, which is availabe as part of the repository (in external),
 doesn't export its targets.
-Use to the most recent version (v1.8.1, https://github.com/google/googletest) by
-using fetch_content() instead of making googletest part of your repository.
-Compile googletest (TODO how do we do it? with add_subdirectory?)
+Write a FindGoogleTest.cmake file to be able to discover googletest.
+Use an interface library for this purpose.
 
 Part 2)
 
-Write a dotprod-config.cmake which exports the target and install it together with the library.
+Actually the most recent version of googletest (v1.8.1, https://github.com/google/googletest)
+properly exports targets.
+Update to this version by using fetch_content() instead of making googletest part of your repository.
+
+Part 3)
+
+Write a dotprod-config.cmake which exports the target and installs it together with the library.
 Update dotprodcl to use the exported target.

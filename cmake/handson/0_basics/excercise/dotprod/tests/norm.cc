@@ -1,5 +1,6 @@
 #include <cmath>
 #include <iostream>
+#include <vector>
 #include "../src/dotprod.h"
 
 int main() {
