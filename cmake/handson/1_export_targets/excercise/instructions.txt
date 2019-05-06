@@ -16,5 +16,7 @@ Use fetch_content() instead of making googletest part of your repository.
 
 Part 3)
 
-- Properly export the target for the dotprod library and installs it together with the library.
+- Properly export the target for the dotprod library and installs it together with the library (add a version
+  number to the library)
 - Update dotprodcl to use the exported target.
+- Try that the version matching works by setting to an incompatible version in find_package().
