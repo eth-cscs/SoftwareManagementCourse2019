@@ -12,7 +12,16 @@ Add necessary commands to install the library and its headers.
 
 Part 3)
 
-Now use library in the dotprodcl application.
-- Define the macro ENABLE_LIBRARY when compiling the executable. (Don't use this patterns in your project!)
+The dotprod library contains 2 test files (assume more tests will be added later).
+- Write a function which takes the name of the test source file (use named arguments as explained)
+  and builds an executable for the test (needs linking with the library from Part 2).
+  Use `test_<test_source_without_.cc>` as executable name, e.g. test_orthogonal for orthogonal.cc.
+- Make a list containing the test file names.
+- Loop over the list creating one exectuable for each test using the function.
+
+Part 4)
+
+Now use the dotprod library in the dotprodcl application.
+- First define the macro ENABLE_LIBRARY when compiling the executable. (Don't use this patterns in your project!)
 - Write the necessary commands to find header and library.
  

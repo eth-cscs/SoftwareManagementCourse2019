@@ -2,7 +2,8 @@
 #include <iostream>
 #include <random>
 
-// This is just a hack to have a single example source
+// This is just a hack to have a single example source,
+// don't do this in your projects!
 #ifdef ENABLE_LIBRARY
 #include "dotprod/dotprod.h"
 #endif

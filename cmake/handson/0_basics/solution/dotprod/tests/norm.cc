@@ -1,0 +1,1 @@
+../../../excercise/dotprod/tests/norm.cc
