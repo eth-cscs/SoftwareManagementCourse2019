@@ -66,8 +66,8 @@ include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(Dotprod
   FOUND_VAR Dotprod_FOUND
   REQUIRED_VARS
-    Foo_LIBRARY
-    Foo_INCLUDE_DIR
+    Dotprod_LIBRARY
+    Dotprod_INCLUDE_DIR
 )
 
 if(Dotprod_FOUND AND NOT TARGET Dotprod::Dotprod)
