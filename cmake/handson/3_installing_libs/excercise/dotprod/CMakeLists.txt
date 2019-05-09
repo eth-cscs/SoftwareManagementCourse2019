@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 
 project(dotprod CXX)
 
-add_library(dotprod src/dotprod.cc)
+add_subdirectory(src)
 
 add_subdirectory(tests)
 

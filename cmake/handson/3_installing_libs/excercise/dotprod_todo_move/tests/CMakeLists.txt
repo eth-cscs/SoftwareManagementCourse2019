@@ -21,7 +21,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-set(test_sources norm.cc orthogonal.cc) #TODO update to changed pattern
+set(test_sources norm.cc orthogonal.cc large_vector.cc)
 
 foreach(src IN LISTS test_sources)
     create_test_executable(SOURCE ${src})
