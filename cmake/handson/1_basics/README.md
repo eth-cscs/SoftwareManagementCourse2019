@@ -13,11 +13,11 @@ Write a CMakeLists.txt to compile the dotprod library (ignore the tests folder f
 # Part 3) Compile the tests
 
 The dotprod library contains 2 test files (assume more tests will be added later).
-- Write a function which takes the name of the test source file (use named arguments as explained)
-  and builds an executable for the test (needs linking with the library from Part 2).
-  Use `test_<test_source_without_.cc>` as executable name, e.g. test_orthogonal for orthogonal.cc.
-- Make a list containing the test file names.
-- Loop over the list creating one exectuable for each test using the function.
+Write a function which takes the names of the test source files and builds an executable for each test.
+- Use named arguments as explained.
+- Loop over the list of test files.
+- Use `test_<test_source_without_.cc>` as executable name, e.g. test_orthogonal for orthogonal.cc.
+- Link with the library.
 
 # Part 4) (optional) Link dotprod with dotprodcl
 
