@@ -50,7 +50,6 @@ find_library(Dotprod_LIBRARY
 find_path(Dotprod_INCLUDE_DIR
     # TODO
     )
-mark_as_advanced(Dotprod_INCLUDE_DIR)
 
 if(Dotprod_LIBRARY)
     add_library(Dotprod::Dotprod INTERFACE IMPORTED)
