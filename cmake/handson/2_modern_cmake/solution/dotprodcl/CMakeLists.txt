@@ -12,13 +12,3 @@ find_package(Boost 1.66 REQUIRED
 
 set(FLOAT_TYPE "double" CACHE STRING "Floating point precision (float/double)" )
 set_property(CACHE FLOAT_TYPE PROPERTY STRINGS "float;double")
-
-add_executable(dotprodcl src/dotprodcl.cc)
-target_link_libraries(dotprodcl PRIVATE Boost::program_options)
-target_link_libraries(dotprodcl PRIVATE Dotprod)
-target_compile_definitions(dotprodcl PRIVATE ENABLE_LIBRARY)
-if(${FLOAT_TYPE} STREQUAL "float")
-    target_compile_definitions(dotprodcl PRIVATE PRECISION=4)
-else()
-    target_compile_definitions(dotprodcl PRIVATE PRECISION=8)
-endif()
