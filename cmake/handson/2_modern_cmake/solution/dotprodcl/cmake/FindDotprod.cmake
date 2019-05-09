@@ -1,4 +1,6 @@
-# Set Dotprod_FOUND to true if the library was found and makes the target Dotprod availabe.
+# Sets Dotprod_FOUND to true if the library was found and makes the target Dotprod availabe.
+
+# TODO move this to exercise with placeholders
 
 if(NOT(DEFINED DOTPROD_ROOT))
     find_path(DOTPROD_ROOT NAMES include/dotprod/dotprod.h
