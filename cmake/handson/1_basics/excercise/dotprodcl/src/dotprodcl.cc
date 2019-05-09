@@ -31,7 +31,7 @@ struct RandomInitializer {
   }
 };
 
-float_type calculate_random_dot_product(size_t size) {
+float_type calculate_random_dot_product(std::size_t size) {
   std::vector<float_type> a(size);
   std::vector<float_type> b(size);
 
@@ -55,8 +55,8 @@ void print_help_and_exit(po::options_description const& desc) {
 
 int main(int argc, char* argv[]) {
   po::options_description desc("Allowed options");
-  desc.add_options()("help", "Shows this message")("size", po::value<size_t>(),
-                                                   "Size of the vectors");
+  desc.add_options()("help", "Shows this message")(
+      "size", po::value<std::size_t>(), "Size of the vectors");
   po::variables_map vm;
   po::store(po::parse_command_line(argc, argv, desc), vm);
   po::notify(vm);
@@ -70,6 +70,6 @@ int main(int argc, char* argv[]) {
     print_help_and_exit(desc);
   }
 
-  std::cout << calculate_random_dot_product(vm["size"].as<size_t>())
+  std::cout << calculate_random_dot_product(vm["size"].as<std::size_t>())
             << std::endl;
 }
