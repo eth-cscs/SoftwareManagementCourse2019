@@ -1,5 +1,20 @@
 Part 1)
 
+- Properly export the target for the dotprod library and installs it together with the library (add a version
+  number to the library)
+- Update dotprodcl to use the exported target.
+- Try that the version matching works by setting to an incompatible version in find_package().
+
+Part 2)
+
+The dotprod library was extended and now contains testing code using googletest.
+The googletest version, which is availabe as part of the repository (in external),
+doesn't export its target. Update to the most recent version of googletest
+(v1.8.1, https://github.com/google/googletest).
+Use fetch_content() instead of making googletest part of your repository.
+
+Part 3)
+
 Add CTest functionality to the dotprod library. Use the `BUILD_TESTING` variable to enable/disable building of the tests.
 - Verify that `make test` executes the tests.
 A new test `large_vector.cc` was added.
