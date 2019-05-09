@@ -32,6 +32,9 @@ The following cache variables may also be set:
 
 #]=======================================================================]
 
+# find_package(PkgConfig)
+# pkg_check_modules(PC_Dotprod QUIET Dotprod)
+
 if(NOT(DEFINED Dotprod_ROOT_DIR))
     find_path(Dotprod_ROOT_DIR NAMES include/dotprod/dotprod.h
         DOC "Path to the dotprod install directory"
@@ -45,6 +48,7 @@ endif()
 
 find_library(Dotprod_LIBRARY
     NAMES dotprod
+#    PATHS ${PC_Dotprod_LIBRARY_DIRS}
     HINTS
         ${Dotprod_ROOT_DIR}/lib64
         ${Dotprod_ROOT_DIR}/lib
@@ -53,25 +57,21 @@ mark_as_advanced(Dotprod_LIBRARY)
 
 find_path(Dotprod_INCLUDE_DIR
     NAMES dotprod/dotprod.h
+#    PATHS ${PC_Dotprod_INCLUDE_DIRS}
     HINTS ${Dotprod_ROOT_DIR}/include
     )
 mark_as_advanced(Dotprod_INCLUDE_DIR)
 
-if(Dotprod_LIBRARY)
-    if(NOT TARGET Dotprod::Dotprod)
-        if(NOT Dotprod_FIND_QUIETLY)
-            message(STATUS "Found Dotprod!")
-        endif()
-        add_library(Dotprod::Dotprod INTERFACE IMPORTED)
-        target_include_directories(Dotprod::Dotprod INTERFACE ${Dotprod_INCLUDE_DIR})
-        target_link_libraries(Dotprod::Dotprod INTERFACE ${Dotprod_LIBRARY})
-        set(Dotprod_FOUND TRUE)
-    endif()
-else()
-    if(Dotprod_FIND_REQUIRED)
-        message(FATAL_ERROR "Required library Dotprod was not found!")
-    elseif(NOT Dotprod_FIND_QUIETLY)
-        message("Library Dotprod was not found!")
-    endif()
-    unset(Dotprod_FOUND)
+include(FindPackageHandleStandardArgs)
+find_package_handle_standard_args(Dotprod
+  FOUND_VAR Dotprod_FOUND
+  REQUIRED_VARS
+    Foo_LIBRARY
+    Foo_INCLUDE_DIR
+)
+
+if(Dotprod_FOUND AND NOT TARGET Dotprod::Dotprod)
+    add_library(Dotprod::Dotprod INTERFACE IMPORTED)
+    target_include_directories(Dotprod::Dotprod INTERFACE ${Dotprod_INCLUDE_DIR})
+    target_link_libraries(Dotprod::Dotprod INTERFACE ${Dotprod_LIBRARY})
 endif()
