@@ -44,34 +44,17 @@ if(NOT(DEFINED Dotprod_ROOT_DIR))
 endif()
 
 find_library(Dotprod_LIBRARY
-    NAMES dotprod
-    HINTS
-        ${Dotprod_ROOT_DIR}/lib64
-        ${Dotprod_ROOT_DIR}/lib
+    # TODO
     )
-mark_as_advanced(Dotprod_LIBRARY)
 
 find_path(Dotprod_INCLUDE_DIR
-    NAMES dotprod/dotprod.h
-    HINTS ${Dotprod_ROOT_DIR}/include
+    # TODO
     )
 mark_as_advanced(Dotprod_INCLUDE_DIR)
 
 if(Dotprod_LIBRARY)
-    if(NOT TARGET Dotprod::Dotprod)
-        if(NOT Dotprod_FIND_QUIETLY)
-            message(STATUS "Found Dotprod!")
-        endif()
-        add_library(Dotprod::Dotprod INTERFACE IMPORTED)
-        target_include_directories(Dotprod::Dotprod INTERFACE ${Dotprod_INCLUDE_DIR})
-        target_link_libraries(Dotprod::Dotprod INTERFACE ${Dotprod_LIBRARY})
-        set(Dotprod_FOUND TRUE)
-    endif()
+    add_library(Dotprod::Dotprod INTERFACE IMPORTED)
+    # TODO
 else()
-    if(Dotprod_FIND_REQUIRED)
-        message(FATAL_ERROR "Required library Dotprod was not found!")
-    elseif(NOT Dotprod_FIND_QUIETLY)
-        message("Library Dotprod was not found!")
-    endif()
-    unset(Dotprod_FOUND)
+    # TODO
 endif()
