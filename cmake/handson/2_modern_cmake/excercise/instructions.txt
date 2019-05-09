@@ -1,6 +1,7 @@
 Part 1)
 
 The CMakeLists.txt is currently written in old-style CMake. Update the project to Modern CMake.
+TODO: add set(CMAKE_CXX_FLAGS) and other bad style things
 
 Part 2)
 
@@ -8,4 +9,6 @@ The dotprodcl application currently uses variables to point to its dependency, t
 Additionally it explicitly sets include path and the library name. Write a FindDotprod.cmake to be
 used in find_package(). Use "imported targets" to propagate needed information to the application
 (include path, library). This is a strategy which you would apply if you don't want to modify the build
-infrastructure of the library (see also Part 3)).
+infrastructure of the library (see next session for a proper solution in this case)).
+
+2b) Make it clean, see doc TODO add. Use find_package_handle_args, (maybe) pkg-config.
