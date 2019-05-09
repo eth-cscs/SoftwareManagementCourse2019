@@ -23,6 +23,7 @@ else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DPRECISION=8")
 endif()
 
+# Don't do this, set it on a target (see next session)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DENABLE_LIBRARY")
 
 add_subdirectory(src)
