@@ -1,7 +1,7 @@
 function(create_test_executables)
     set(options)
     set(oneValueArgs)
-    set(multiValueArgs SOURCES LABELS)
+    set(multiValueArgs SOURCES)
     cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
     
     foreach(src IN LISTS ARG_SOURCES)
@@ -12,9 +12,6 @@ function(create_test_executables)
         
         # link with googletest library
         target_link_libraries(${test_name} gtest_main)
-        
-        add_test(NAME ${filename_without_suffix} COMMAND ${test_name})
-        set_tests_properties(${filename_without_suffix} PROPERTIES LABELS "${ARG_LABELS}")
     endforeach()
 endfunction()
 
@@ -27,7 +24,5 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 set(test_sources norm.cc orthogonal.cc)
-create_test_executables(SOURCES ${test_sources} LABELS "unit_tests")
 
-set(regression_sources large_vector.cc)
-create_test_executables(SOURCES ${regression_sources} LABELS "regression_tests")
+create_test_executables(SOURCES ${test_sources})
