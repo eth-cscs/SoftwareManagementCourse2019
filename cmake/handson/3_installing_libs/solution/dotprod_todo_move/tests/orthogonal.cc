@@ -1,1 +1,0 @@
-../../../excercise/dotprod/tests/orthogonal.cc
