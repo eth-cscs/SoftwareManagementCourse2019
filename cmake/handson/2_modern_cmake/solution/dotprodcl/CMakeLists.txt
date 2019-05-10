@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(dotprodcl CXX)
+project(dotprodcl LANGUAGES CXX)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
 
