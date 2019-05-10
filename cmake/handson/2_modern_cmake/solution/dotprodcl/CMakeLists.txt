@@ -10,7 +10,7 @@ find_package(Boost 1.66 REQUIRED
     COMPONENTS program_options
     )
 
-set(FLOAT_TYPE "double" CACHE STRING "Floating point precision (float/double)" )
+set(FLOAT_TYPE "double" CACHE STRING "Floating point precision (float/double)")
 set_property(CACHE FLOAT_TYPE PROPERTY STRINGS "float;double")
 
 add_subdirectory(src)

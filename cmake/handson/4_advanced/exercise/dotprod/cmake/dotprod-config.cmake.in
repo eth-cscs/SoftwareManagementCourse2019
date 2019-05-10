@@ -1,4 +1,4 @@
-@PACKAGE_INIT@
+# @PACKAGE_INIT@ not needed (defines some macros that we don't need)
 # include(CMakeFindDependencyMacro) not needed (no dependency)
 include(${CMAKE_CURRENT_LIST_DIR}/dotprod-targets.cmake)
 # check_required_components(dotprod) not needed

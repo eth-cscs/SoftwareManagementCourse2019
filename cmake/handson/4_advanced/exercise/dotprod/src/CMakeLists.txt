@@ -1,7 +1,7 @@
 add_library(dotprod dotprod.cc)
 target_include_directories(dotprod PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-    $<INSTALL_INTERFACE:include>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
     )
 
 install(TARGETS dotprod
