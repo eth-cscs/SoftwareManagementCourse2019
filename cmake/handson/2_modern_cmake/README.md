@@ -13,7 +13,7 @@ Additionally it explicitly sets include path and the library name.
 Start from the skeleton in cmake/FindDotprod.cmake.
 Use "imported targets" to propagate needed information to the application
 (include path, library). This is a strategy which you would apply if you don't want to modify the build
-infrastructure of the library (see next session for a proper solution in this case))
+infrastructure of the library (see next session for a proper solution in this case)
 
 ### b) Write a clean FindDotprod.cmake (optional)
 

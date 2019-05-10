@@ -1,10 +1,15 @@
-include(CMakePackageConfigHelpers)
+include(GNUInstallDirs)
+
+install(FILES src/dotprod.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dotprod )
 
 install(EXPORT dotprod-targets
     FILE dotprod-targets.cmake
     NAMESPACE Dotprod::
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
     )
+
+
+include(CMakePackageConfigHelpers)
 
 write_basic_package_version_file(dotprod-version.cmake
     VERSION ${PROJECT_VERSION}

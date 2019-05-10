@@ -9,5 +9,5 @@ add_subdirectory(tests) # for part 3)
 include(GNUInstallDirs)
 install(DIRECTORY src/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dotprod
         FILES_MATCHING PATTERN "*.h")
-#install(FILES src/dotprod.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dotprod)
+
 install(TARGETS dotprod DESTINATION ${CMAKE_INSTALL_LIBDIR})
