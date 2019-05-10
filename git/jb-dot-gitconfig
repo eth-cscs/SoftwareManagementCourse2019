@@ -8,7 +8,8 @@
 # show the diff in patch format
         df = diff
 # show the diffs in GUI difftool (assumes difftool configured)
-        dt = difftool
+        dt  = difftool
+        dts = difftool --staged
 # show diff in patch format (same as df actually)
         dp = diff --no-ext-diff
 # show diff stats, lines changed etc
