@@ -3,7 +3,7 @@ function(create_test_executable)
     set(oneValueArgs SOURCE)
     set(multiValueArgs LABELS)
     cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
-    
+
     string(REPLACE ".cc" "" filename_without_suffix ${ARG_SOURCE})
     set(test_name "test_${filename_without_suffix}")
     add_executable(${test_name} ${ARG_SOURCE})
@@ -11,7 +11,7 @@ function(create_test_executable)
 
     # link with googletest library
     target_link_libraries(${test_name} gtest_main)
-    
+
     add_test(NAME ${filename_without_suffix} COMMAND ${test_name})
     set_tests_properties( ${filename_without_suffix} PROPERTIES LABELS "${ARG_LABELS}")
 endfunction()

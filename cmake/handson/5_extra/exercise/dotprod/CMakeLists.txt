@@ -2,7 +2,7 @@
 
 cmake_minimum_required(VERSION 3.14)
 
-project(dotprod CXX)
+project(dotprod LANGUAGES CXX)
 
 option(BUILD_TESTING "Enable testing" ON)
 option(ENABLE_GPU "Enable GPU" ON)
@@ -26,5 +26,5 @@ endif()
 
 # TODO based on the one with proper installation!
 include(GNUInstallDirs)
-install(FILES src/dotprod.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dotprod )
+install(FILES src/dotprod.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dotprod)
 install(TARGETS dotprod DESTINATION ${LIBDIR})

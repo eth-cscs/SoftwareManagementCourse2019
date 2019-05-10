@@ -14,7 +14,6 @@ endfunction()
 
 # Globbing has some disadvantages, see https://cmake.org/cmake/help/latest/command/file.html#filesystem
 # file(GLOB test_sources RELATIVE ${CMAKE_CURRENT_LIST_DIR} CONFIGURE_DEPENDS *.cc)
-set(test_sources norm.cc orthogonal.cc)
 
 create_test_executables(SOURCES
     norm.cc
