@@ -1,0 +1,130 @@
+[alias]
+# shortcut to show current status
+        st = status
+# show log, but also show file names changed
+        wc = whatchanged
+# show only the names of files that are different between two commits
+        dn = diff --name-only
+# show the diff in patch format
+        df = diff
+# show the diffs in GUI difftool (assumes difftool configured)
+        dt = difftool
+# show diff in patch format (same as df actually)
+        dp = diff --no-ext-diff
+# show diff stats, lines changed etc
+        ds = diff --stat -w
+# fetch from origin 
+        fo = fetch origin
+# fetch from all remote repos
+        fa = fetch --all
+# list local branches 
+        br = branch
+# list all branches including remote ones
+        ba = "!git branch -a | sed 's/remotes\\///g'"
+# show status of all local branches (most recent commit etc)
+        bs = branch -v -v
+# show last commit date/time for all local branches and sort by most recently modified
+        bd = "!git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
+# show last commit date/time for all branches on this repo
+        bdr = "!git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/remotes/$1"
+# list the remotes, or show full info for an individual remote
+        rs = remote show
+# shortcut for commit
+        ci = commit  
+# shortcut for cherry-pick
+        cp = cherry-pick
+# shortcut for checkout
+        co = checkout
+# commit with an empty message (do not use this normally)
+        ce = commit --allow-empty-message -m ''
+# shortcut for merge base between two commits
+        mb = merge-base
+# start the merge tool to fix conflicts
+        mt = mergetool
+# list all these aliases out in alphabetical order
+        la = "!git config -l | grep alias | cut -c 7- | sort"
+# show the last 5 commits
+        l5 = log -5
+# show a one line git log 
+        l1 = log --pretty=oneline
+# show a one line log with some author info 
+        ll = log --pretty=format:'%h %<(35)%an %s'
+# show a text form tree of the log in one line form
+        lx = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %<(65,trunc)%s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit
+# show the log, and also the patch for each commit
+        lp = log -p
+# show last commit author
+        who = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+# show last commit log
+        what = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+# add to commit, but do not add whitespace changes (awesome)
+        addnw = "!sh -c 'git diff -U1 --patch -w --no-color \"$@\" | git apply --cached --ignore-space-change --ignore-whitespace' -"
+# show patch ignoring whitespace
+        pnw = "!sh -c 'git diff -U1 --patch -w --no-color \"$@\"' "            
+# show the gitk graphical tool
+        k = !gitk
+# show the local branches and tags in gitk graphical tool
+        kl = !gitk --argscmd='git for-each-ref --format=\"%(refname)\" refs/heads refs/tags'
+# show only local branches in the gitk graphical tool
+        ko = !echo $(git branch | sed s/*//g) | gitk
+# show all branches, remote and local in gitk graphical tool
+        ka = !gitk --all
+# shortcut for continue rebase 
+        rebc = rebase --continue
+# shortcut for abort rebase 
+        reba = rebase --abort
+# shortcut for skip rebase
+        rebs = rebase --skip
+# display last message during rebase
+        rebm = "!head .git/COMMIT_EDITMSG"
+# display original diff of current conflicting commit
+        rebd = "!git difftool $(echo $(cat .git/rebase-apply/original-commit .git/rebase-apply/original-commit)~)"
+# checkout a pull request by number
+        pr = "!f() { git fetch $1 pull/$2/head:pull_$2; git co pull_$2; }; f"
+# look in local branches for a string, using branches sorted by most recent first  
+        reg = "!f() { git for-each-ref --sort='-committerdate:iso8601' --format='%09%(refname)' refs/heads | sed 's/refs\\/heads\\///' | xargs git grep $1; }; f"
+
+# only push the branch we're on, bnot everything
+[push]
+	default = current
+[color]
+	ui = auto
+[core]
+	autocrlf = input
+	filemode = false
+	editor = vim
+	abbrev = 12
+
+# replay recorded resolution
+[rerere]
+    enabled = true
+[credential]
+    helper = cache --timeout=36000
+
+# declare tools to be used for diff and merge
+[diff]
+        tool = meld20
+[merge]
+        tool = meld20
+
+# setup those tools with correct paths and command lines
+# wget https://download.gnome.org/sources/meld/3.20/meld-3.20.1.tar.xz && tar -xf meld-3.20.1.tar.xz -C $HOME/apps/meld --strip-components=1
+[mergetool "meld20"]
+        cmd = $HOME/apps/meld/bin/meld "$REMOTE" "$MERGED" "$LOCAL" --output "$MERGED"
+[difftool "meld20"]
+        cmd = $HOME/apps/meld/bin/meld "$REMOTE" "$LOCAL" 
+
+# don't annoy me with prompts
+[difftool]
+        prompt = false
+
+# https credential cache - timout is 1 day 
+[credential]
+        helper = cache --timeout=36000
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
