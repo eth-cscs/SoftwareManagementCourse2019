@@ -37,9 +37,7 @@ float_type calculate_random_dot_product(size_t size) {
 
   float_type res = 0;
 
-#ifdef ENABLE_LIBRARY
   res = dotprod(a, b);
-#endif
 
   return res;
 }

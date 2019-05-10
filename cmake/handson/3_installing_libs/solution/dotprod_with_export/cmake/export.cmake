@@ -14,6 +14,7 @@ write_basic_package_version_file(dotprod-version.cmake
 configure_package_config_file(cmake/dotprod-config.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/dotprod-config.cmake
     INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
+    )
 
 install(
     FILES
