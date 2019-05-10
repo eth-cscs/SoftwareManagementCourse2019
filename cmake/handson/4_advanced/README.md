@@ -4,11 +4,3 @@ Add CTest functionality to the dotprod library. Use the `BUILD_TESTING` variable
 - Verify that `make test` executes the tests.
 A new test `large_vector.cc` was added.
 - Add an option to run the tests without this expensive regression test by using ctest labels. 
-
-Part 2)
-
-Something with CUDA
-
-maybe Part 3)
-
-Something with Fortran
