@@ -1,1 +1,1 @@
-../../../excercise/dotprod/tests/norm.cc
+../../../exercise/dotprod/tests/norm.cc
