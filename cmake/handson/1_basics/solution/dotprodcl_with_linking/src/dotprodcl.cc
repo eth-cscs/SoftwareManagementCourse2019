@@ -1,1 +1,1 @@
-../../../excercise/dotprodcl/src/dotprodcl.cc
+../../../exercise/dotprodcl/src/dotprodcl.cc

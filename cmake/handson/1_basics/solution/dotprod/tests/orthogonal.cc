@@ -1,1 +1,1 @@
-../../../excercise/dotprod/tests/orthogonal.cc
+../../../exercise/dotprod/tests/orthogonal.cc
