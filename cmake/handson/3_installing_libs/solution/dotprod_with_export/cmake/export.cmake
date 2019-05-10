@@ -1,6 +1,6 @@
 include(GNUInstallDirs)
 
-install(FILES src/dotprod.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dotprod )
+install(FILES src/dotprod.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dotprod)
 
 install(EXPORT dotprod-targets
     FILE dotprod-targets.cmake
