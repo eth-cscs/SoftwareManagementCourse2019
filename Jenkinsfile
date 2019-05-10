@@ -7,8 +7,14 @@ pipeline {
                       sbatch --wait sbatch_test.sh
                       cat test.out
                       grep '100% tests passed' test.out'''
-                archiveArtifacts 'test.out test.err'
+
+                archiveArtifacts 'test.out,test.err'
             }
+        }
+    }
+    post {
+        always {
+            deleteDir()
         }
     }
 }
