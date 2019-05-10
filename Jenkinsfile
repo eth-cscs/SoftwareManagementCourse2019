@@ -5,7 +5,9 @@ pipeline {
             steps {
                 sh '''#!/bin/bash -l
                       sbatch --wait sbatch_test.sh
-                      cat test.out'''
+                      cat test.out
+                      grep '100% tests passed''''
+                archiveArtifacts 'test.out test.err'
             }
         }
     }
