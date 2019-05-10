@@ -1,4 +1,4 @@
-Part 1)
+# Part 1)
 
 Add CTest functionality to the dotprod library. Use the `BUILD_TESTING` variable to enable/disable building of the tests.
 - Verify that `make test` executes the tests.
