@@ -71,7 +71,10 @@ find_package_handle_standard_args(Dotprod
 )
 
 if(Dotprod_FOUND AND NOT TARGET Dotprod::Dotprod)
-    add_library(Dotprod::Dotprod INTERFACE IMPORTED)
-    target_include_directories(Dotprod::Dotprod INTERFACE ${Dotprod_INCLUDE_DIR})
-    target_link_libraries(Dotprod::Dotprod INTERFACE ${Dotprod_LIBRARY})
+    add_library(Dotprod::Dotprod UNKNOWN IMPORTED)
+    set_target_properties(Dotprod::Dotprod
+        PROPERTIES
+        IMPORTED_LOCATION ${Dotprod_LIBRARY}
+        INTERFACE_INCLUDE_DIRECTORIES ${Dotprod_INCLUDE_DIR}
+        )
 endif()
