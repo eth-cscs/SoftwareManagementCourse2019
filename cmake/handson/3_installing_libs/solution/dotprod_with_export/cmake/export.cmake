@@ -11,7 +11,7 @@ install(EXPORT dotprod-targets
 
 include(CMakePackageConfigHelpers)
 
-write_basic_package_version_file(dotprod-version.cmake
+write_basic_package_version_file(dotprod-config-version.cmake
     VERSION ${PROJECT_VERSION}
     COMPATIBILITY SameMajorVersion
     )
@@ -24,6 +24,6 @@ configure_package_config_file(cmake/dotprod-config.cmake.in
 install(
     FILES
         ${CMAKE_CURRENT_BINARY_DIR}/dotprod-config.cmake
-        ${CMAKE_CURRENT_BINARY_DIR}/dotprod-version.cmake
+        ${CMAKE_CURRENT_BINARY_DIR}/dotprod-config-version.cmake
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
     )

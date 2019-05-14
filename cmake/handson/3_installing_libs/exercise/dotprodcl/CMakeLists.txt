@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.14)
 
 project(dotprodcl LANGUAGES CXX)
 
-find_package(Dotprod REQUIRED)
+find_package(Dotprod 1.0.0 REQUIRED)
 
-find_package(Boost 1.66 REQUIRED
+find_package(Boost 1.61 REQUIRED
     COMPONENTS program_options
     )
 
