@@ -14,3 +14,8 @@ https://docs.google.com/presentation/d/1aCt94fghlIKQcen7JWWGjBo60BPDNduMWlLUzkrT
 
 [EasyBuild_20190510_CSCS_software_management.pdf](./EasyBuild/EasyBuild_20190510_CSCS_software_management.pdf)
 
+# Material for Spack Presentation
+
+- Slides: https://alalazo.github.io/spack-cscs2019/
+- Sources: https://github.com/alalazo/spack-cscs2019
+- Docker images for the demo: https://cloud.docker.com/u/alalazo/repository/docker/alalazo/spack-cscs-sm2019
