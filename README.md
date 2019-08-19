@@ -10,6 +10,10 @@ https://docs.google.com/presentation/d/1aCt94fghlIKQcen7JWWGjBo60BPDNduMWlLUzkrT
 
 [jenkins_slides.pdf](./jenkins/jenkins_slides.pdf)
 
+# Slides for CMake Presentation
+
+[2019-05-13^.14_CMake.pptx](./cmake/2019-05-13^.14_CMake.pptx)
+
 # Slides for Easybuild Presentation
 
 [EasyBuild_20190510_CSCS_software_management.pdf](./EasyBuild/EasyBuild_20190510_CSCS_software_management.pdf)
