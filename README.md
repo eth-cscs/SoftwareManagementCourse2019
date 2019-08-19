@@ -12,7 +12,7 @@ https://docs.google.com/presentation/d/1aCt94fghlIKQcen7JWWGjBo60BPDNduMWlLUzkrT
 
 # Slides for CMake Presentation
 
-[2019-05-13^.14_CMake.pptx.pdf](./cmake/2019-05-13^.14_CMake.pptx)
+[2019-05-13^.14_CMake.pptx](./cmake/2019-05-13^.14_CMake.pptx)
 
 # Slides for Easybuild Presentation
 
